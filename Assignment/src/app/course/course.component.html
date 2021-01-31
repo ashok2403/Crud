@@ -1,0 +1,50 @@
+
+<div class="container">
+    <div class="form-group">
+        <h3>Course</h3>
+        <div class="form-row">
+            <div class="col-md-3">
+                <select class="form-control" (change)="getStudentsByCourse($event)">
+                    <option value="">Select Course</option>
+                    <option value={{course.course_id}} *ngFor="let course of courseList">{{course.course_name}}</option>
+
+                </select>
+            </div>
+            <div class="col-md-3">
+                <button (click)="addNewCourse()" class="btn btn-warning">Add New Course</button>
+
+            </div>
+            <div class="col-md-3" *ngIf="showCourseTextBox">
+                <input type="text" class="form-control" [(ngModel)]="courseName">
+                <button (click)="removeCourse()" class="btn btn-warning">X</button>
+                <button (click)="addCourse()" class="btn btn-success">Add</button>
+
+            </div>
+
+        </div>
+        <div class="form-row" *ngIf="showStudentSection">
+        <h3>Students</h3>
+            <div class="col-md-3">
+                <select class="form-control">
+                    <option value="">Select Student</option>
+                    <option value={{student.student_id}} *ngFor="let student of selectedStudentList">
+                        {{student.student_name}}</option>
+
+                </select>
+            </div>
+            <div class="col-md-3">
+                <button (click)="addNewStudent()" class="btn btn-warning">Add New Student</button>
+
+            </div>
+            <div class="col-md-3" *ngIf="showStudentTextbox">
+                <input type="text" class="form-control" [(ngModel)]="studentName">
+                <button (click)="removeStudent()" class="btn btn-warning">X</button>
+                <button (click)="addStudent()" class="btn btn-success">Add</button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
